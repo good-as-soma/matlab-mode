@@ -827,7 +827,6 @@ All Key Bindings:
   (setq-local comment-column matlab-comment-column)
   (setq-local comment-indent-function 'matlab-comment-indent)
   (setq-local add-log-current-defun-function 'matlab-current-defun)
-  (setq-local fill-column default-fill-column)
   (make-local-variable 'auto-fill-function)
   (if matlab-auto-fill (setq auto-fill-function 'matlab-auto-fill))
   (setq-local normal-auto-fill-function 'matlab-auto-fill)
