@@ -893,7 +893,8 @@ All Key Bindings:
     (t))
   (save-excursion
     (goto-char (point-min))
-    (run-hooks 'matlab-mode-hook)))
+    (run-hooks 'matlab-mode-hook))
+  (bind-map-change-major-mode-after-body-hook)
 
 ;;* Utilities
 (defun matlab-show-version ()
@@ -3263,7 +3264,8 @@ Instead of polluting the `matlab-shell'.")
 (defun matlab-eval-filter (process str)
   "Use `comint-output-filter' for `matlab-shell'.
 Simply `insert' into `matlab-bg-eval-buffer' for `matlab-eval'."
-  (setq str (replace-regexp-in-string "" "" str))
+  (setq str (replace-regexp-in-string "
+" "" str))
   (push str matlab-eval-filter-stack)
   (let ((buffer (process-buffer process)))
     (if (string= (buffer-name buffer) matlab-bg-eval-buffer)
