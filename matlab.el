@@ -3264,7 +3264,7 @@ Instead of polluting the `matlab-shell'.")
 (defun matlab-eval-filter (process str)
   "Use `comint-output-filter' for `matlab-shell'.
 Simply `insert' into `matlab-bg-eval-buffer' for `matlab-eval'."
-  (setq str (replace-regexp-in-string " " "" str))
+  (setq str (replace-regexp-in-string "" "" str))
   (push str matlab-eval-filter-stack)
   (let ((buffer (process-buffer process)))
     (if (string= (buffer-name buffer) matlab-bg-eval-buffer)
